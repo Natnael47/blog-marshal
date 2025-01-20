@@ -130,6 +130,8 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
+import { FaceIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons";
+
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default async function Home() {
@@ -145,8 +147,22 @@ export default async function Home() {
       ) : (
         <div>
           <RegisterLink>
-            <Button>Register</Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button>Register</Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Register using Kindly</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </RegisterLink>
+          <div className="flex flex-row">
+            <FaceIcon width={25} />
+            <SunIcon />
+            <ImageIcon />
+          </div>
           <LoginLink>
             <Button>Login</Button>
           </LoginLink>
